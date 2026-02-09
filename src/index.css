@@ -1,0 +1,101 @@
+:root {
+  /* Color Palette */
+  --color-primary: #0047AB; /* Corporate Blue - deep, trustworthy */
+  --color-primary-dark: #003380;
+  --color-accent: #097af3; /* Solar Yellow - energy, innovation */
+  --color-accent-secondary: #4CAF50; /* Green Tech - sustainability */
+  --color-danger: #D32F2F; /* Fire Safety - red */
+  
+  --color-bg-light: #ffffff;
+  --color-bg-off-white: #f8f9fa;
+  --color-bg-dark: #1a1a1a;
+  
+  --color-text-main: #333333;
+  --color-text-light: #666666;
+  --color-text-white: #ffffff;
+
+  /* Typography */
+  --font-family-sans: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  
+  /* Spacing */
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 4rem;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  
+  font-family: var(--font-family-sans);
+  line-height: 1.6;
+  font-weight: 400;
+
+  color-scheme: light;
+  color: var(--color-text-main);
+  background-color: var(--color-bg-light);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-primary);
+}
+
+h1 { font-size: 3.5rem; }
+h2 { font-size: 2.5rem; }
+h3 { font-size: 1.75rem; }
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color var(--transition-fast);
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Utilities */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.section {
+  padding: var(--spacing-xl) 0;
+}
+
+.text-center { text-align: center; }
+.flex-center { display: flex; justify-content: center; align-items: center; }

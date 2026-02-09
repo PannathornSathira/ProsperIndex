@@ -1,0 +1,201 @@
+/* Product Page Styles */
+
+.product-page {
+  padding-top: 80px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Hero Section */
+.product-hero {
+  background: linear-gradient(135deg, #1a2942 0%, var(--color-primary-dark) 100%);
+  color: var(--color-text-white);
+  padding: 80px 0;
+  text-align: center;
+}
+
+.product-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-text-white);
+}
+
+.product-hero p {
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
+/* Product Section */
+.product-section {
+  background-color: var(--color-bg-off-white);
+}
+
+/* Filters */
+.filter-container {
+  margin-bottom: 3rem;
+  display: flex;
+  justify-content: center;
+}
+
+.filter-scroll {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+  -webkit-overflow-scrolling: touch; 
+}
+
+.filter-btn {
+  background: var(--color-bg-light);
+  border: 2px solid #e0e0e0;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 500;
+  color: var(--color-text-light);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+}
+
+.filter-btn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.filter-btn.active {
+  background-color: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+  box-shadow: 0 4px 12px rgba(0, 71, 171, 0.2);
+}
+
+.filter-icon {
+  display: flex;
+  align-items: center;
+}
+
+/* Grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.product-card {
+  background: var(--color-bg-light);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.product-image {
+  height: 220px;
+  overflow: hidden;
+  position: relative;
+  background-color: #eee;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-image img {
+  transform: scale(1.05);
+}
+
+.product-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.product-card:hover .product-overlay {
+  opacity: 1;
+}
+
+.btn-view-details {
+  background: white;
+  color: var(--color-text-main);
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover .btn-view-details {
+  transform: translateY(0);
+}
+
+.product-details {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-category {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.5px;
+}
+
+/* Category Colors */
+.product-category.solar { color: var(--color-accent-secondary); }
+.product-category.electrical { color: var(--color-primary); }
+.product-category.safety { color: var(--color-danger); }
+.product-category.security { color: #555; }
+
+.product-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+
+.product-card p {
+  font-size: 0.95rem;
+  color: var(--color-text-light);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.no-products {
+  text-align: center;
+  padding: 3rem;
+  color: var(--color-text-light);
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+  
+  .filter-container {
+    justify-content: flex-start; /* Alignment for scrolling on mobile */
+  }
+}
