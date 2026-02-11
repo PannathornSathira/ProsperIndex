@@ -21,7 +21,7 @@ const Hero = () => {
           <Button variant="accent" size="large" onClick={() => window.location.href='/about'}>
             Contact Our Experts <ArrowRight size={20} />
           </Button>
-          <Button variant="outline" size="large" onClick={() => window.location.href='/service'}>
+          <Button variant="secondary" size="large" onClick={() => window.location.href='/service'}>
             Explore Services
           </Button>
         </div>

@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Service from './pages/Service';
 import Product from './pages/Product';
 import AboutUs from './pages/AboutUs';
+import ProjectReference from './pages/ProjectReference';
 import './App.css';
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/service" element={<Service />} />
         <Route path="/product" element={<Product />} />
+        <Route path="/projects" element={<ProjectReference />} />
         <Route path="/about" element={<AboutUs />} />
       </Routes>
     </Router>

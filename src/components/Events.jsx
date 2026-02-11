@@ -2,27 +2,31 @@ import React from 'react';
 import { Calendar, ArrowRight } from 'lucide-react';
 import './Events.css';
 
+import eventSeminar from '../assets/event-seminar.png';
+import eventTraining from '../assets/event-training.png';
+import eventPartnership from '../assets/event-partnership.png';
+
 const Events = () => {
   const events = [
     {
       id: 1,
       title: 'Annual Solar Energy Seminar 2026',
       date: 'March 15, 2026',
-      image: 'https://placehold.co/600x400/FFD700/333?text=Seminar',
+      image: eventSeminar,
       excerpt: 'Join us for a deep dive into the latest solar technologies and regulations in Thailand.',
     },
     {
       id: 2,
       title: 'Safety First: Engineering Certification',
       date: 'February 28, 2026',
-      image: 'https://placehold.co/600x400/0047AB/FFF?text=Training',
+      image: eventTraining,
       excerpt: 'Our team completes the advanced ISO 45001 safety training certification.',
     },
     {
       id: 3,
       title: 'New Partnership with Global Tech Giant',
       date: 'February 10, 2026',
-      image: 'https://placehold.co/600x400/4CAF50/FFF?text=Partnership',
+      image: eventPartnership,
       excerpt: 'ProsperIndex announces a strategic partnership to expand green energy solutions.',
     },
   ];

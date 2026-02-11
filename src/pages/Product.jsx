@@ -3,7 +3,12 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Filter, Zap, Sun, Flame, Shield, ArrowRight } from 'lucide-react';
 import './Product.css';
-
+import TandaImg from '../assets/TANDAFA.jpg';
+import NotifierImg from '../assets/Notify_honeywell.png';
+import HikvisionImg from '../assets/Hikvision-CCTV-Access-Control.jpg';
+import FiremanImg from '../assets/Fire-Man.png';
+import UPSImg from '../assets/UPS-BESTA.png';
+import LightProtectionImg from '../assets/Lighting-Protection.png';
 const Product = () => {
   const [activeCategory, setActiveCategory] = useState('All');
 
@@ -18,59 +23,52 @@ const Product = () => {
   const products = [
     {
       id: 1,
-      category: 'Solar',
-      title: 'Monocrystalline Solar Panels',
-      image: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
-      description: 'High-efficiency panels suitable for commercial and industrial rooftop installations.',
+      category: 'Security',
+      title: 'Hikvision CCTV & Access Control',
+      image: HikvisionImg,
+      description: 'Comprehensive security solutions including IP cameras, DVRs, NVRs, and biometric access control systems.',
     },
     {
       id: 2,
-      category: 'Electrical',
-      title: 'Industrial Voltage Stabilizer',
-      image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
-      description: 'Heavy-duty voltage regulation to protect sensitive machinery from power fluctuations.',
+      category: 'Safety',
+      title: 'Notifier by Honeywell',
+      image: NotifierImg,
+      description: 'Advanced fire detection and alarm systems, featuring intelligent control panels and diverse peripheral devices.',
     },
     {
       id: 3,
-      category: 'Solar',
-      title: 'Hybrid Solar Inverter',
-      image: 'https://images.unsplash.com/photo-1548337138-e87d889cc369?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
-      description: 'Smart inverter system capable of managing grid and battery power seamlessly.',
+      category: 'Safety',
+      title: 'Tanda Fire Alarm System',
+      image: TandaImg,
+      description: 'Reliable fire alarm solutions with a wide range of detectors, control panels, and notification appliances.',
     },
     {
       id: 4,
       category: 'Safety',
-      title: 'Intelligent Fire Control Panel',
-      image: 'https://images.unsplash.com/photo-1615818987391-f925c14d9dcc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
-      description: 'Addressable fire alarm control panel for large-scale building safety management.',
+      title: 'Fireman Telephone System',
+      image: FiremanImg,
+      description: 'Dedicated communication systems for emergency responders, ensuring clear and reliable coordination during incidents.',
     },
     {
       id: 5,
-      category: 'Security',
-      title: '4K IP Dome Camera',
-      image: 'https://images.unsplash.com/photo-1557862921-37829c790f19?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
-      description: 'High-resolution surveillance camera with night vision and AI motion detection.',
+      category: 'Electrical',
+      title: 'Bakiral UPS',
+      image: UPSImg,
+      description: 'High-performance Uninterruptible Power Supplies (UPS) ensuring continuous power for critical applications.',
     },
     {
       id: 6,
       category: 'Electrical',
-      title: 'Surge Protection Device (SPD)',
-      image: 'https://plus.unsplash.com/premium_photo-1678837862665-de823d069c9b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
-      description: 'Type 1+2 surge protector for main power distribution boards.',
-    },
-     {
-      id: 7,
-      category: 'Safety',
-      title: 'Smoke & Heat Detector',
-      image: 'https://images.unsplash.com/photo-1517420879524-86d64ac2f339?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
-      description: 'Dual-sensor detector for early fire warning and reliability.',
+      title: 'Lighting Protector',
+      image: LightProtectionImg,
+      description: 'Robust surge protection devices to safeguard electrical equipment from voltage spikes and lightning.',
     },
     {
-      id: 8,
-      category: 'Security',
-      title: 'Biometric Access Control',
-      image: 'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
-      description: 'Fingerprint and facial recognition terminal for secure entry management.',
+      id: 7,
+      category: 'Solar',
+      title: 'Solar Energy Solutions',
+      image: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+      description: 'Complete solar power systems including panels and inverters for sustainable energy generation.',
     }
   ];
 

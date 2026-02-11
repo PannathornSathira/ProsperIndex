@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Sun, Zap, Flame, Cctv, ArrowRight, ShieldCheck, HardHat, CheckCircle } from 'lucide-react';
 import './Service.css';
+import serviceEngineerImg from '../assets/service-engineer.png';
 
 const Service = () => {
   const services = [
@@ -91,11 +92,12 @@ const Service = () => {
                 <li><CheckCircle size={20} color="var(--color-primary)" /> tailored Solutions</li>
               </ul>
             </div>
-            <div className="intro-image-placeholder">
-              {/* Placeholder for an actual image */}
-              <div className="placeholder-box">
-                <span>Engineering & Consultation</span>
-              </div>
+            <div className="intro-image-container">
+              <img 
+                src={serviceEngineerImg} 
+                alt="ProsperIndex engineer installing fire alarm system" 
+                className="intro-image"
+              />
             </div>
           </div>
         </div>
@@ -141,8 +143,7 @@ const Service = () => {
             <h2>Ready to Optimize Your Infrastructure?</h2>
             <p>Book a site survey today or consult with our experts to find the right solution for you.</p>
             <div className="cta-buttons">
-              <button className="btn btn-primary">Book a Site Survey</button>
-              <button className="btn btn-outline">Contact an Expert</button>
+              <a href="/about"><button className="btn btn-outline">Contact an Expert</button></a>
             </div>
           </div>
         </div>
