@@ -1,36 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Calendar, ArrowRight } from 'lucide-react';
+import { events } from '../data/eventsData';
 import './Events.css';
 
-import eventSeminar from '../assets/event-seminar.png';
-import eventTraining from '../assets/event-training.png';
-import eventPartnership from '../assets/event-partnership.png';
-
 const Events = () => {
-  const events = [
-    {
-      id: 1,
-      title: 'Annual Solar Energy Seminar 2026',
-      date: 'March 15, 2026',
-      image: eventSeminar,
-      excerpt: 'Join us for a deep dive into the latest solar technologies and regulations in Thailand.',
-    },
-    {
-      id: 2,
-      title: 'Safety First: Engineering Certification',
-      date: 'February 28, 2026',
-      image: eventTraining,
-      excerpt: 'Our team completes the advanced ISO 45001 safety training certification.',
-    },
-    {
-      id: 3,
-      title: 'New Partnership with Global Tech Giant',
-      date: 'February 10, 2026',
-      image: eventPartnership,
-      excerpt: 'ProsperIndex announces a strategic partnership to expand green energy solutions.',
-    },
-  ];
-
   return (
     <section className="events-section section" id="events">
       <div className="container">
@@ -52,9 +26,9 @@ const Events = () => {
                 </div>
                 <h3 className="event-title">{event.title}</h3>
                 <p className="event-excerpt">{event.excerpt}</p>
-                <a href="#" className="read-more">
+                <Link to={`/events/${event.id}`} className="read-more">
                   Read More <ArrowRight size={16} />
-                </a>
+                </Link>
               </div>
             </article>
           ))}

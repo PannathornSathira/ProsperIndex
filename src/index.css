@@ -16,7 +16,7 @@
 
   /* Typography */
   --font-family-sans: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
-  
+  --header-height: 40px;
   /* Spacing */
   --spacing-sm: 0.5rem;
   --spacing-md: 1rem;

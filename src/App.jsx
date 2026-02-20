@@ -5,6 +5,7 @@ import Service from './pages/Service';
 import Product from './pages/Product';
 import AboutUs from './pages/AboutUs';
 import ProjectReference from './pages/ProjectReference';
+import EventDetail from './pages/EventDetail';
 import './App.css';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path="/product" element={<Product />} />
         <Route path="/projects" element={<ProjectReference />} />
         <Route path="/about" element={<AboutUs />} />
+        <Route path="/events/:id" element={<EventDetail />} />
       </Routes>
     </Router>
   );
