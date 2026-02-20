@@ -37,7 +37,7 @@ const EventDetail = () => {
       <div className="event-detail-page section">
         <div className="container">
           <div className="event-detail-header">
-            <Link to="/" className="back-link">
+            <Link to="/events" className="back-link">
               <ArrowLeft size={20} /> Back to Events
             </Link>
             <div className="event-detail-meta">
