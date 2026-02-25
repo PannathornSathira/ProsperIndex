@@ -1,11 +1,42 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Target, Eye, Award, Users, ThumbsUp, Lightbulb } from 'lucide-react';
 import Logo from '../assets/ProsperLogo-removebg.png';
+import emailjs from '@emailjs/browser';
 import './AboutUs.css';
 
 const AboutUs = () => {
+  const form = useRef();
+  const [status, setStatus] = useState('');
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    setStatus('Sending...');
+
+    emailjs
+      .sendForm(
+        'service_a2p2hm9', // Replace with your Service ID
+        'template_vfc896i', // Replace with your Template ID
+        form.current,
+        {
+          publicKey: 'MD4xcOmoqS5w-CrU9', // Replace with your Public Key
+        }
+      )
+      .then(
+        (result) => {
+          setStatus('Message sent successfully!');
+          form.current.reset();
+          // Reset status after a few seconds
+          setTimeout(() => setStatus(''), 5000);
+        },
+        (error) => {
+          const errorMessage = error.text || error.message || 'Unknown error occurred';
+          setStatus(`Failed: ${errorMessage}`);
+          console.error('EmailJS Error:', error);
+        }
+      );
+  };
   return (
     <div className="about-page">
       <Header />
@@ -142,20 +173,21 @@ const AboutUs = () => {
             </div>
 
             <div className="contact-form-container">
-              <form className="contact-form">
+              <form ref={form} onSubmit={sendEmail} className="contact-form">
                 <div className="form-group">
-                  <label htmlFor="name">Name</label>
-                  <input type="text" id="name" placeholder="Your Name" />
+                  <label htmlFor="user_name">Name</label>
+                  <input type="text" id="user_name" name="user_name" placeholder="Your Name" required />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="email">Email</label>
-                  <input type="email" id="email" placeholder="Your Email" />
+                  <label htmlFor="user_email">Email</label>
+                  <input type="email" id="user_email" name="user_email" placeholder="Your Email" required />
                 </div>
                 <div className="form-group">
                   <label htmlFor="message">Message</label>
-                  <textarea id="message" rows="4" placeholder="How can we help?"></textarea>
+                  <textarea id="message" name="message" rows="4" placeholder="How can we help?" required></textarea>
                 </div>
-                <button type="button" className="btn btn-primary">Send Message</button>
+                <button type="submit" className="btn btn-primary">Send Message</button>
+                {status && <p className="form-status" style={{ marginTop: '15px', fontWeight: '500', color: status.includes('Failed') ? '#e74c3c' : '#2ecc71' }}>{status}</p>}
               </form>
             </div>
           </div>
