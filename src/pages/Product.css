@@ -33,11 +33,16 @@
 
 /* Filters */
 .filter-container {
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem;
   display: flex;
   justify-content: center;
 }
 
+.filter-container.sub-filters {
+  margin-bottom: 1rem;
+}
+
+/* Base scroll for all filter rows */
 .filter-scroll {
   display: flex;
   gap: 1rem;
@@ -46,6 +51,7 @@
   -webkit-overflow-scrolling: touch; 
 }
 
+/* Main Category Buttons */
 .filter-btn {
   background: var(--color-bg-light);
   border: 2px solid #e0e0e0;
@@ -79,11 +85,42 @@
   align-items: center;
 }
 
+/* Sub-Filters (Brand & Subcategory) */
+.pill-scroll {
+  gap: 0.75rem;
+  padding-bottom: 0.5rem;
+}
+
+.filter-pill {
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  padding: 0.4rem 1.2rem;
+  border-radius: 20px;
+  font-weight: 500;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  font-size: 0.9rem;
+}
+
+.filter-pill:hover {
+  background: #e2e8f0;
+  color: var(--color-primary-dark);
+}
+
+.filter-pill.active {
+  background: var(--color-primary-dark);
+  color: white;
+  border-color: var(--color-primary-dark);
+}
+
 /* Grid */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 2rem;
+  margin-top: 1.5rem;
 }
 
 .product-card {
@@ -105,13 +142,14 @@
   height: 220px;
   overflow: hidden;
   position: relative;
-  background-color: #eee;
+  background-color: white;
 }
 
 .product-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  padding: 1rem;
   transition: transform 0.5s ease;
 }
 
@@ -155,24 +193,39 @@
   flex-direction: column;
 }
 
+.product-breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
 .product-category {
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
   color: #888;
-  margin-bottom: 0.5rem;
   letter-spacing: 0.5px;
 }
 
 /* Category Colors */
-.product-category.solar { color: var(--color-accent-secondary); }
-.product-category.electrical { color: var(--color-primary); }
-.product-category.safety { color: var(--color-danger); }
-.product-category.security { color: #555; }
+.product-category.solarcell { color: var(--color-accent-secondary); }
+.product-category.electricdevice { color: var(--color-primary); }
+.product-category.firealarm { color: var(--color-danger); }
+.product-category.ups { color: #555; }
+
+.product-brand-tag,
+.product-subcat-tag {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  font-weight: 500;
+}
 
 .product-card h3 {
-  font-size: 1.25rem;
-  margin-bottom: 0.75rem;
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-text-main);
   line-height: 1.4;
 }
 

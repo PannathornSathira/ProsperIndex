@@ -1,80 +1,125 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { Filter, Zap, Sun, Flame, Shield, ArrowRight } from 'lucide-react';
+import { Filter, Zap, Sun, Flame, Shield, ArrowRight, BatteryMedium } from 'lucide-react';
 import './Product.css';
-import TandaImg from '../assets/TANDAFA.jpg';
-import NotifierImg from '../assets/Notify_honeywell.png';
-import HikvisionImg from '../assets/Hikvision-CCTV-Access-Control.jpg';
-import FiremanImg from '../assets/Fire-Man.png';
-import UPSImg from '../assets/UPS-BESTA.png';
-import LightProtectionImg from '../assets/Lighting-Protection.png';
+import { productDetails } from '../data/productDetails';
+
+// Dynamically load all product images from the assets directory
+// eager: true ensures they are bundled immediately.
+const imageModules = import.meta.glob('../assets/Products/**/*.{png,jpg,jpeg,svg,webp}', { eager: true });
+
+// Parse the file paths into structured product objects
+const products = Object.entries(imageModules).map(([path, module]) => {
+  // Remove the prefix to get a clean path like: FireAlarm/Notifier/AddressableLoop/FA-A-B200S.png
+  const relativePath = path.replace('../assets/Products/', '');
+  const parts = relativePath.split('/');
+  
+  const category = parts[0];
+  let brand = 'Default';
+  let subcategory = 'Default';
+  let filename = parts[parts.length - 1];
+  
+  // Categorize based on directory structure depth
+  if (parts.length === 2) {
+    brand = 'Default'; 
+    subcategory = 'Default';
+  } else if (parts.length === 3) {
+    brand = parts[1];
+    subcategory = 'Default';
+  } else if (parts.length >= 4) {
+    brand = parts[1];
+    subcategory = parts[2];
+  }
+
+  // Remove the file extension for the title lookup (e.g., FA-A-B200S.png -> FA-A-B200S)
+  const baseFilename = filename.split('.').slice(0, -1).join('.');
+  
+  // Look up specific details from our separate data file
+  const detail = productDetails[baseFilename];
+
+  return {
+    id: path,
+    category,
+    brand,
+    subcategory,
+    title: detail?.name || baseFilename,
+    description: detail?.description || 'Premium specialized equipment for your energy, safety, and security needs.',
+    features: detail?.features || [],
+    image: module.default,
+  };
+});
+
+// Helper functions for UI presentability
+const formatLabel = (str) => str.replace(/([A-Z])/g, ' $1').trim();
+
+const getCategoryIcon = (catName) => {
+  switch (catName) {
+    case 'ElectricDevice': return <Zap size={18} />;
+    case 'FireAlarm': return <Flame size={18} />;
+    case 'SolarCell': return <Sun size={18} />;
+    case 'UPS': return <BatteryMedium size={18} />;
+    default: return <Filter size={18} />;
+  }
+};
+
 const Product = () => {
   const [activeCategory, setActiveCategory] = useState('All');
+  const [activeBrand, setActiveBrand] = useState('All');
+  const [activeSubcategory, setActiveSubcategory] = useState('All');
 
-  const categories = [
-    { id: 'All', label: 'All Products' },
-    { id: 'Solar', label: 'Solar Energy', icon: <Sun size={18} /> },
-    { id: 'Electrical', label: 'Electrical Protection', icon: <Zap size={18} /> },
-    { id: 'Safety', label: 'Fire Safety', icon: <Flame size={18} /> },
-    { id: 'Security', label: 'Security Systems', icon: <Shield size={18} /> },
-  ];
+  // Dynamically extract main categories
+  const allCategories = useMemo(() => Array.from(new Set(products.map(p => p.category))), []);
 
-  const products = [
-    {
-      id: 1,
-      category: 'Security',
-      title: 'Hikvision CCTV & Access Control',
-      image: HikvisionImg,
-      description: 'Comprehensive security solutions including IP cameras, DVRs, NVRs, and biometric access control systems.',
-    },
-    {
-      id: 2,
-      category: 'Safety',
-      title: 'Notifier by Honeywell',
-      image: NotifierImg,
-      description: 'Advanced fire detection and alarm systems, featuring intelligent control panels and diverse peripheral devices.',
-    },
-    {
-      id: 3,
-      category: 'Safety',
-      title: 'Tanda Fire Alarm System',
-      image: TandaImg,
-      description: 'Reliable fire alarm solutions with a wide range of detectors, control panels, and notification appliances.',
-    },
-    {
-      id: 4,
-      category: 'Safety',
-      title: 'Fireman Telephone System',
-      image: FiremanImg,
-      description: 'Dedicated communication systems for emergency responders, ensuring clear and reliable coordination during incidents.',
-    },
-    {
-      id: 5,
-      category: 'Electrical',
-      title: 'Bakiral UPS',
-      image: UPSImg,
-      description: 'High-performance Uninterruptible Power Supplies (UPS) ensuring continuous power for critical applications.',
-    },
-    {
-      id: 6,
-      category: 'Electrical',
-      title: 'Lighting Protector',
-      image: LightProtectionImg,
-      description: 'Robust surge protection devices to safeguard electrical equipment from voltage spikes and lightning.',
-    },
-    {
-      id: 7,
-      category: 'Solar',
-      title: 'Solar Energy Solutions',
-      image: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
-      description: 'Complete solar power systems including panels and inverters for sustainable energy generation.',
-    }
-  ];
+  // Handle Level 1: Categories
+  const handleCategoryChange = (cat) => {
+    setActiveCategory(cat);
+    setActiveBrand('All');
+    setActiveSubcategory('All');
+  };
 
-  const filteredProducts = activeCategory === 'All' 
-    ? products 
-    : products.filter(product => product.category === activeCategory);
+  // Handle Level 2: Brands
+  const handleBrandChange = (brand) => {
+    setActiveBrand(brand);
+    setActiveSubcategory('All');
+  };
+
+  // Filter 1: By Category
+  const categoryProducts = useMemo(() => {
+    return activeCategory === 'All' 
+      ? products 
+      : products.filter(p => p.category === activeCategory);
+  }, [activeCategory]);
+
+  // Derive Level 2: Available Brands
+  const availableBrands = useMemo(() => {
+    if (activeCategory === 'All') return [];
+    const brandsSet = new Set(categoryProducts.map(p => p.brand));
+    brandsSet.delete('Default'); // Default means no explicit brand subdirectory
+    return Array.from(brandsSet).sort();
+  }, [categoryProducts, activeCategory]);
+
+  // Filter 2: By Brand
+  const brandProducts = useMemo(() => {
+    return activeBrand === 'All'
+      ? categoryProducts
+      : categoryProducts.filter(p => p.brand === activeBrand);
+  }, [categoryProducts, activeBrand]);
+
+  // Derive Level 3: Available Subcategories
+  const availableSubcategories = useMemo(() => {
+    if (activeCategory === 'All' || activeBrand === 'All') return [];
+    const subSet = new Set(brandProducts.map(p => p.subcategory));
+    subSet.delete('Default'); // Default means no subcategory directory
+    return Array.from(subSet).sort();
+  }, [brandProducts, activeCategory, activeBrand]);
+
+  // Filter 3: Final Products (by Subcategory)
+  const finalProducts = useMemo(() => {
+    return activeSubcategory === 'All'
+      ? brandProducts
+      : brandProducts.filter(p => p.subcategory === activeSubcategory);
+  }, [brandProducts, activeSubcategory]);
 
   return (
     <div className="product-page">
@@ -94,34 +139,91 @@ const Product = () => {
       <section className="section product-section">
         <div className="container">
           
-          {/* Filters */}
-          <div className="filter-container">
+          {/* Main Categories Tab Filter */}
+          <div className="filter-container main-filters">
             <div className="filter-scroll">
-              {categories.map((cat) => (
+              <button 
+                className={`filter-btn ${activeCategory === 'All' ? 'active' : ''}`}
+                onClick={() => handleCategoryChange('All')}
+              >
+                <span className="filter-icon"><Filter size={18} /></span>
+                All Products
+              </button>
+              {allCategories.map((cat) => (
                 <button 
-                  key={cat.id} 
-                  className={`filter-btn ${activeCategory === cat.id ? 'active' : ''}`}
-                  onClick={() => setActiveCategory(cat.id)}
+                  key={cat} 
+                  className={`filter-btn ${activeCategory === cat ? 'active' : ''}`}
+                  onClick={() => handleCategoryChange(cat)}
                 >
-                  {cat.icon && <span className="filter-icon">{cat.icon}</span>}
-                  {cat.label}
+                  <span className="filter-icon">{getCategoryIcon(cat)}</span>
+                  {formatLabel(cat)}
                 </button>
               ))}
             </div>
           </div>
 
+          {/* Sub-Filters: Brands */}
+          {availableBrands.length > 0 && (
+            <div className="filter-container sub-filters">
+              <div className="filter-scroll pill-scroll">
+                <button 
+                  className={`filter-pill ${activeBrand === 'All' ? 'active' : ''}`}
+                  onClick={() => handleBrandChange('All')}
+                >
+                  All Brands
+                </button>
+                {availableBrands.map((brand) => (
+                  <button 
+                    key={brand} 
+                    className={`filter-pill ${activeBrand === brand ? 'active' : ''}`}
+                    onClick={() => handleBrandChange(brand)}
+                  >
+                    {formatLabel(brand)}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Sub-Filters: Subcategories */}
+          {availableSubcategories.length > 0 && (
+            <div className="filter-container sub-filters">
+              <div className="filter-scroll pill-scroll">
+                <button 
+                  className={`filter-pill ${activeSubcategory === 'All' ? 'active' : ''}`}
+                  onClick={() => setActiveSubcategory('All')}
+                >
+                  All Categories
+                </button>
+                {availableSubcategories.map((sub) => (
+                  <button 
+                    key={sub} 
+                    className={`filter-pill ${activeSubcategory === sub ? 'active' : ''}`}
+                    onClick={() => setActiveSubcategory(sub)}
+                  >
+                    {formatLabel(sub)}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
           {/* Grid */}
           <div className="product-grid">
-            {filteredProducts.map((product) => (
+            {finalProducts.map((product) => (
               <div key={product.id} className="product-card">
                 <div className="product-image">
-                  <img src={product.image} alt={product.title} loading="lazy" />
-                  <div className="product-overlay">
-                    <button className="btn-view-details">Request Quote</button>
-                  </div>
+                   <img src={product.image} alt={product.title} loading="lazy" />
+                   <div className="product-overlay">
+                     <button className="btn-view-details">Request Quote</button>
+                   </div>
                 </div>
                 <div className="product-details">
-                  <span className={`product-category ${product.category.toLowerCase()}`}>{product.category}</span>
+                  <div className="product-breadcrumbs">
+                     <span className={`product-category ${product.category.toLowerCase()}`}>{formatLabel(product.category)}</span>
+                     {product.brand !== 'Default' && <span className="product-brand-tag">• {formatLabel(product.brand)}</span>}
+                     {product.subcategory !== 'Default' && <span className="product-subcat-tag">/ {formatLabel(product.subcategory)}</span>}
+                  </div>
                   <h3>{product.title}</h3>
                   <p>{product.description}</p>
                 </div>
@@ -129,7 +231,7 @@ const Product = () => {
             ))}
           </div>
 
-          {filteredProducts.length === 0 && (
+          {finalProducts.length === 0 && (
             <div className="no-products">
                <p>No products selling in this category.</p>
             </div>
