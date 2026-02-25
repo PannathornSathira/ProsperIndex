@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLanguage } from '../context/LanguageContext';
 import './OurCustomers.css';
 import bangkokHostpital from '../assets/CustomerRef/Bangkok.jpg';
 import CNMI from '../assets/CustomerRef/CNMI_logo.png';
@@ -6,7 +7,9 @@ import Samitivej from '../assets/CustomerRef/Samitivej.png';
 import Sukumvit from '../assets/CustomerRef/Sukumvit.png';
 import  Vichaiyut from '../assets/CustomerRef/Vichaiyut.png';
 import BNH from '../assets/CustomerRef/BNH.png';
+
 const OurCustomers = () => {
+  const { t } = useLanguage();
   // Placeholder data for customers
   // In a real application, these would be image URLs
   const customers = [
@@ -21,8 +24,8 @@ const OurCustomers = () => {
   return (
     <section className="our-customers-section">
       <div className="container">
-        <h2 className="section-title">Our Customers</h2>
-        <p className="section-subtitle">Trusted by industry leaders in renewable energy and engineering.</p>
+        <h2 className="section-title">{t('customers.sectionTitle')}</h2>
+        <p className="section-subtitle">{t('customers.sectionSubtitle')}</p>
         
         <div className="customers-grid">
           {customers.map((customer) => (

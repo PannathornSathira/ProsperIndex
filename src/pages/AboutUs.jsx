@@ -4,9 +4,11 @@ import Footer from '../components/Footer';
 import { Target, Eye, Award, Users, ThumbsUp, Lightbulb } from 'lucide-react';
 import Logo from '../assets/ProsperLogo-removebg.png';
 import emailjs from '@emailjs/browser';
+import { useLanguage } from '../context/LanguageContext';
 import './AboutUs.css';
 
 const AboutUs = () => {
+  const { t } = useLanguage();
   const form = useRef();
   const [status, setStatus] = useState('');
 
@@ -24,15 +26,15 @@ const AboutUs = () => {
         }
       )
       .then(
-        (result) => {
-          setStatus('Message sent successfully!');
+        () => {
+          setStatus(t('aboutPage.msgSuccess'));
           form.current.reset();
           // Reset status after a few seconds
           setTimeout(() => setStatus(''), 5000);
         },
         (error) => {
           const errorMessage = error.text || error.message || 'Unknown error occurred';
-          setStatus(`Failed: ${errorMessage}`);
+          setStatus(`${t('aboutPage.msgFailed')}${errorMessage}`);
           console.error('EmailJS Error:', error);
         }
       );
@@ -44,8 +46,8 @@ const AboutUs = () => {
       <section className="about-hero">
         <div className="container">
           <div className="about-hero-content">
-            <h1>About ProsperIndex</h1>
-            <p>Your Trusted Partner in Engineering Excellence & Innovation</p>
+            <h1>{t('aboutPage.heroTitle')}</h1>
+            <p>{t('aboutPage.heroSubtitle')}</p>
           </div>
         </div>
       </section>
@@ -55,27 +57,27 @@ const AboutUs = () => {
         <div className="container">
           <div className="about-grid">
             <div className="about-text">
-              <h2>Who We Are</h2>
+              <h2>{t('aboutPage.whoWeAreTitle')}</h2>
               <div className="divider"></div>
               <p>
-                ProsperIndex Co., Ltd. operates and provides services for solving electrical problems such as power outages, surges, blackouts, fires, and lightning strikes. We possess knowledge, expertise, and specialization in Power Quality systems, Protection Equipment, Fire Alarm, Fire Protection, Power Supply, and more.
+                {t('aboutPage.whoWeAreDesc1')}
               </p>
               <p>
-                We address issues that cause extensive damage to electrical appliances and electronic equipment, including computers, medical devices, communication tools, and audio systems. With products designed to support and resolve these problems effectively, we serve offices, hospitals, hotels, industrial factories, and laboratories. Backed by over 15 years of experience, we have been caring for leading hospitals and hotels nationwide.
+                {t('aboutPage.whoWeAreDesc2')}
               </p>
             </div>
             <div className="about-stats-container">
                <div className="stat-card">
                  <h3>15+</h3>
-                 <p>Years Experience</p>
+                 <p>{t('aboutPage.statsExp')}</p>
                </div>
                <div className="stat-card">
                  <h3>500+</h3>
-                 <p>Projects Completed</p>
+                 <p>{t('aboutPage.statsProj')}</p>
                </div>
                <div className="stat-card">
                  <h3>100%</h3>
-                 <p>Client Satisfaction</p>
+                 <p>{t('aboutPage.statsSat')}</p>
                </div>
             </div>
           </div>
@@ -90,18 +92,18 @@ const AboutUs = () => {
               <div className="mv-icon">
                 <Target size={40} />
               </div>
-              <h3>Our Mission</h3>
+              <h3>{t('aboutPage.missionTitle')}</h3>
               <p>
-                To provide innovative, reliable, and sustainable engineering solutions that empower businesses to operate safely and efficiently. We strive to reduce energy costs and enhance security through cutting-edge technology and professional service.
+                {t('aboutPage.missionDesc')}
               </p>
             </div>
             <div className="mv-card vision">
               <div className="mv-icon">
                 <Eye size={40} />
               </div>
-              <h3>Our Vision</h3>
+              <h3>{t('aboutPage.visionTitle')}</h3>
               <p>
-                To be the most trusted and preferred engineering solutions provider in the region, recognized for our commitment to quality, safety, and customer success in the fields of green energy and smart infrastructure.
+                {t('aboutPage.visionDesc')}
               </p>
             </div>
           </div>
@@ -112,30 +114,30 @@ const AboutUs = () => {
       <section className="section values-section">
         <div className="container">
           <div className="section-header text-center">
-            <h2>Our Core Values</h2>
-            <p>The principles that drive our success and your satisfaction.</p>
+            <h2>{t('aboutPage.valuesTitle')}</h2>
+            <p>{t('aboutPage.valuesSubtitle')}</p>
           </div>
           
           <div className="values-grid">
             <div className="value-item">
               <div className="value-icon"><Award size={32} /></div>
-              <h3>Quality</h3>
-              <p>We never compromise on the quality of our equipment or our workmanship.</p>
+              <h3>{t('aboutPage.value1Title')}</h3>
+              <p>{t('aboutPage.value1Desc')}</p>
             </div>
             <div className="value-item">
               <div className="value-icon"><Users size={32} /></div>
-              <h3>Integrity</h3>
-              <p>We conduct our business with honesty, transparency, and ethical standards.</p>
+              <h3>{t('aboutPage.value2Title')}</h3>
+              <p>{t('aboutPage.value2Desc')}</p>
             </div>
             <div className="value-item">
               <div className="value-icon"><ThumbsUp size={32} /></div>
-              <h3>Reliability</h3>
-              <p>You can count on us to deliver on time, on budget, and to your specifications.</p>
+              <h3>{t('aboutPage.value3Title')}</h3>
+              <p>{t('aboutPage.value3Desc')}</p>
             </div>
             <div className="value-item">
               <div className="value-icon"><Lightbulb size={32} /></div>
-              <h3>Innovation</h3>
-              <p>We constantly seek new technologies to provide better efficient solutions.</p>
+              <h3>{t('aboutPage.value4Title')}</h3>
+              <p>{t('aboutPage.value4Desc')}</p>
             </div>
           </div>
         </div>
@@ -149,24 +151,23 @@ const AboutUs = () => {
             <div className="contact-info">
               <img src={Logo} alt="ProsperIndex Tech" width="40%"/>
               <br></br>
-              <h2>Get in Touch</h2>
+              <h2>{t('aboutPage.getInTouch')}</h2>
               <p className="contact-desc">
-                Have a project in mind or need expert advice? Contact our team today 
-                and let's build something great together.
+                {t('aboutPage.getInTouchDesc')}
               </p>
               
               <div className="contact-details">
                 <div className="contact-detail-item">
-                  <h3>Visit Us</h3>
+                  <h3>{t('aboutPage.visitUs')}</h3>
                   <p>555/72 Moo 10, Nai Khlong Bang Pla Kot,<br/>Phra Samut Chedi, Samut Prakan 10290</p>
                 </div>
                 <div className="contact-detail-item">
-                  <h3>Call Us</h3>
+                  <h3>{t('aboutPage.callUs')}</h3>
                   <p>02-464-6969</p>
                   <p>02-464-6870 (Fax)</p>
                 </div>
                 <div className="contact-detail-item">
-                  <h3>Email Us</h3>
+                  <h3>{t('aboutPage.emailUs')}</h3>
                   <p>Prosper.index@outlook.co.th</p>
                 </div>
               </div>
@@ -175,18 +176,18 @@ const AboutUs = () => {
             <div className="contact-form-container">
               <form ref={form} onSubmit={sendEmail} className="contact-form">
                 <div className="form-group">
-                  <label htmlFor="user_name">Name</label>
-                  <input type="text" id="user_name" name="user_name" placeholder="Your Name" required />
+                  <label htmlFor="user_name">{t('aboutPage.formName')}</label>
+                  <input type="text" id="user_name" name="user_name" placeholder={t('aboutPage.formNamePh')} required />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="user_email">Email</label>
-                  <input type="email" id="user_email" name="user_email" placeholder="Your Email" required />
+                  <label htmlFor="user_email">{t('aboutPage.formEmail')}</label>
+                  <input type="email" id="user_email" name="user_email" placeholder={t('aboutPage.formEmailPh')} required />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="message">Message</label>
-                  <textarea id="message" name="message" rows="4" placeholder="How can we help?" required></textarea>
+                  <label htmlFor="message">{t('aboutPage.formMsg')}</label>
+                  <textarea id="message" name="message" rows="4" placeholder={t('aboutPage.formMsgPh')} required></textarea>
                 </div>
-                <button type="submit" className="btn btn-primary">Send Message</button>
+                <button type="submit" className="btn btn-primary">{t('aboutPage.btnSend')}</button>
                 {status && <p className="form-status" style={{ marginTop: '15px', fontWeight: '500', color: status.includes('Failed') ? '#e74c3c' : '#2ecc71' }}>{status}</p>}
               </form>
             </div>

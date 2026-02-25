@@ -2,61 +2,64 @@ import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Sun, Zap, Flame, Cctv, ArrowRight, ShieldCheck, HardHat, CheckCircle } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 import './Service.css';
 import serviceEngineerImg from '../assets/service-engineer.png';
 
 const Service = () => {
+  const { t } = useLanguage();
+
   const services = [
     {
       id: 1,
-      title: 'Green Energy (Solar)',
+      title: t('servicePage.list.s1.title'),
       icon: <Sun size={48} />,
       color: 'var(--color-accent-secondary)',
-      description: 'Comprehensive solar energy solutions designed to reduce operational costs for hotels, businesses, and industrial facilities.',
+      description: t('servicePage.list.s1.desc'),
       features: [
-        'Free energy consultation & site analysis',
-        'Customized solar panel system design',
-        'Professional installation by certified engineers',
-        'ROI analysis and performance monitoring'
+        t('servicePage.list.s1.f1'),
+        t('servicePage.list.s1.f2'),
+        t('servicePage.list.s1.f3'),
+        t('servicePage.list.s1.f4')
       ]
     },
     {
       id: 2,
-      title: 'Electrical Protection',
+      title: t('servicePage.list.s2.title'),
       icon: <Zap size={48} />,
       color: 'var(--color-primary)',
-      description: 'Advanced protection systems to safeguard expensive medical and hotel equipment from power surges, voltage drops, and blackouts.',
+      description: t('servicePage.list.s2.desc'),
       features: [
-        'Voltage stabilization systems',
-        'Surge protection device (SPD) installation',
-        'UPS & backup power solutions',
-        'Power quality analysis & auditing'
+        t('servicePage.list.s2.f1'),
+        t('servicePage.list.s2.f2'),
+        t('servicePage.list.s2.f3'),
+        t('servicePage.list.s2.f4')
       ]
     },
     {
       id: 3,
-      title: 'Fire & Life Safety',
+      title: t('servicePage.list.s3.title'),
       icon: <Flame size={48} />,
       color: 'var(--color-danger)',
-      description: 'State-of-the-art fire detection and alarm systems installed and maintained in strict accordance with legal safety standards.',
+      description: t('servicePage.list.s3.desc'),
       features: [
-        'Fire alarm system design & installation',
-        'Regular maintenance & safety inspections',
-        'Emergency lighting & exit sign systems',
-        'Compliance certification services'
+        t('servicePage.list.s3.f1'),
+        t('servicePage.list.s3.f2'),
+        t('servicePage.list.s3.f3'),
+        t('servicePage.list.s3.f4')
       ]
     },
     {
       id: 4,
-      title: 'CCTV & Access Control',
+      title: t('servicePage.list.s4.title'),
       icon: <Cctv size={48} />,
       color: 'var(--color-text-main)',
-      description: 'High-security monitoring and access control solutions to ensure the safety of your premises, assets, and personnel.',
+      description: t('servicePage.list.s4.desc'),
       features: [
-        'HD & IP Camera surveillance systems',
-        'Biometric & card access control',
-        'Remote monitoring capabilities',
-        'Integrated security management systems'
+        t('servicePage.list.s4.f1'),
+        t('servicePage.list.s4.f2'),
+        t('servicePage.list.s4.f3'),
+        t('servicePage.list.s4.f4')
       ]
     }
   ];
@@ -69,8 +72,8 @@ const Service = () => {
       <section className="service-hero">
         <div className="container">
           <div className="service-hero-content">
-            <h1>Our Expert Services</h1>
-            <p>Reliable, professional, and innovative engineering solutions tailored for your business success.</p>
+            <h1>{t('servicePage.heroTitle')}</h1>
+            <p>{t('servicePage.heroSubtitle')}</p>
           </div>
         </div>
       </section>
@@ -80,16 +83,14 @@ const Service = () => {
         <div className="container">
           <div className="intro-grid">
             <div className="intro-text">
-              <h2>Engineering Excellence You Can Trust</h2>
+              <h2>{t('servicePage.introTitle')}</h2>
               <p>
-                At ProsperIndex, we combine technical expertise with a commitment to quality. 
-                Whether you need to cut energy costs, protect critical equipment, or ensure 
-                safety compliance, our team of certified professionals is ready to deliver.
+                {t('servicePage.introDesc')}
               </p>
               <ul className="intro-features">
-                <li><ShieldCheck size={20} color="var(--color-primary)" /> Certified Professionals</li>
-                <li><HardHat size={20} color="var(--color-primary)" /> Safety-First Approach</li>
-                <li><CheckCircle size={20} color="var(--color-primary)" /> tailored Solutions</li>
+                <li><ShieldCheck size={20} color="var(--color-primary)" /> {t('servicePage.feature1')}</li>
+                <li><HardHat size={20} color="var(--color-primary)" /> {t('servicePage.feature2')}</li>
+                <li><CheckCircle size={20} color="var(--color-primary)" /> {t('servicePage.feature3')}</li>
               </ul>
             </div>
             <div className="intro-image-container">
@@ -107,8 +108,8 @@ const Service = () => {
       <section className="section services-list" id="services-list">
         <div className="container">
           <div className="section-header text-center">
-            <h2>Core Solutions</h2>
-            <p>Specialized services designed for modern industrial and commercial needs.</p>
+            <h2>{t('servicePage.coreTitle')}</h2>
+            <p>{t('servicePage.coreSubtitle')}</p>
           </div>
           
           <div className="services-grid">
@@ -140,10 +141,10 @@ const Service = () => {
       <section className="section cta-section">
         <div className="container">
           <div className="cta-content text-center">
-            <h2>Ready to Optimize Your Infrastructure?</h2>
-            <p>Book a site survey today or consult with our experts to find the right solution for you.</p>
+            <h2>{t('servicePage.ctaTitle')}</h2>
+            <p>{t('servicePage.ctaSubtitle')}</p>
             <div className="cta-buttons">
-              <a href="/about"><button className="btn btn-outline">Contact an Expert</button></a>
+              <a href="/about"><button className="btn btn-outline">{t('servicePage.btnContact')}</button></a>
             </div>
           </div>
         </div>

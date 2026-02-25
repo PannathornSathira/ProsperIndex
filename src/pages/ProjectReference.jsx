@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { X, Calendar } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 import './ProjectReference.css';
 import '../components/Events.css'; // Reuse modal styles
 import { projects } from '../data/projectsData';
 
 const ProjectReference = () => {
+  const { t } = useLanguage();
   const [activeCategory, setActiveCategory] = useState("All");
   const [selectedProject, setSelectedProject] = useState(null);
 
@@ -35,8 +37,8 @@ const ProjectReference = () => {
       
       <section className="project-hero">
         <div className="container">
-          <h1>Project References</h1>
-          <p>Explore our extensive portfolio showcasing expertise in engineering, installation, and maintenance across various critical systems.</p>
+          <h1>{t('projectPage.heroTitle')}</h1>
+          <p>{t('projectPage.heroSubtitle')}</p>
         </div>
       </section>
 
@@ -72,7 +74,7 @@ const ProjectReference = () => {
                       <div className="project-info">
                         <h3>{project.title}</h3>
                         <p>{project.description}</p>
-                        <span style={{ color: 'var(--color-primary)', fontSize: '0.85rem', fontWeight: 600, marginTop: '10px', display: 'block' }}>View Gallery →</span>
+                        <span style={{ color: 'var(--color-primary)', fontSize: '0.85rem', fontWeight: 600, marginTop: '10px', display: 'block' }}>{t('projectPage.viewGallery')}</span>
                       </div>
                     </div>
                   ))}

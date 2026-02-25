@@ -1,8 +1,10 @@
 import React from 'react';
 import { MapPin, Phone, Mail, Facebook, Youtube, Instagram, Twitter } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 import './Footer.css';
 
 const Footer = () => {
+  const { t } = useLanguage();
   return (
     <footer className="footer" id="contact">
       <div className="container">
@@ -11,8 +13,7 @@ const Footer = () => {
           <div className="footer-column">
             <h3>ProsperIndex</h3>
             <p style={{ color: '#ccc', marginBottom: '1rem' }}>
-              Leading the way in electrical engineering and renewable energy solutions. 
-              Committed to safety, quality, and sustainability.
+              {t('footer.companyDesc')}
             </p>
             <div className="social-links">
               <a href="#" className="social-icon" aria-label="Facebook"><Facebook size={20} /></a>
@@ -24,10 +25,10 @@ const Footer = () => {
 
           {/* Contact Details */}
           <div className="footer-column">
-            <h3>Contact Us</h3>
+            <h3>{t('footer.contactUs')}</h3>
             <div className="contact-item">
               <MapPin size={18} color="var(--color-accent)" />
-              <span>555/72 Moo 10, Nai Khlong Bang Pla Kot, Phra Samut Chedi, Samut Prakan 10290</span>
+              <span>{t('footer.companyAddress')}</span>
             </div>
             <div className="contact-item">
               <Phone size={18} color="var(--color-accent)" />
@@ -45,7 +46,7 @@ const Footer = () => {
 
           {/* Map */}
           <div className="footer-column">
-            <h3>Find Us</h3>
+            <h3>{t('footer.findUs')}</h3>
             <div className="map-container">
               {/* Embed Google Maps Placeholder */}
               <iframe 
@@ -59,8 +60,8 @@ const Footer = () => {
         </div>
 
         <div className="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} ProsperIndex Engineering Co., Ltd. All Rights Reserved.</p>
-          <p style={{ fontSize: '0.8rem', marginTop: '0.5rem', opacity: 0.6 }}>Designed & Developed by ProsperIndex Tech Team</p>
+          <p>&copy; {new Date().getFullYear()} {t('footer.rights')}</p>
+          <p style={{ fontSize: '0.8rem', marginTop: '0.5rem', opacity: 0.6 }}>{t('footer.developedBy')}</p>
         </div>
       </div>
     </footer>

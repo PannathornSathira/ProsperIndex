@@ -1,31 +1,33 @@
 import React from 'react';
 import { MessagesSquare, ClipboardCheck, PenTool, Wrench } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 import './Workflow.css';
 
 const Workflow = () => {
+  const { t } = useLanguage();
   const steps = [
     {
       id: 1,
-      title: 'Consultation',
-      description: 'Expert advice tailored to your energy needs and industrial requirements.',
+      title: t('workflow.step1Title'),
+      description: t('workflow.step1Desc'),
       icon: <MessagesSquare size={32} />,
     },
     {
       id: 2,
-      title: 'Site Survey',
-      description: 'Precision assessment of your location for optimal system performance.',
+      title: t('workflow.step2Title'),
+      description: t('workflow.step2Desc'),
       icon: <ClipboardCheck size={32} />,
     },
     {
       id: 3,
-      title: 'Professional Design',
-      description: 'Custom engineering solutions designed for efficiency and safety.',
+      title: t('workflow.step3Title'),
+      description: t('workflow.step3Desc'),
       icon: <PenTool size={32} />,
     },
     {
       id: 4,
-      title: 'Expert Installation',
-      description: 'Seamless installation with rigorous quality assurance and testing.',
+      title: t('workflow.step4Title'),
+      description: t('workflow.step4Desc'),
       icon: <Wrench size={32} />,
     },
   ];
@@ -34,8 +36,8 @@ const Workflow = () => {
     <section className="workflow-section section" id="services">
       <div className="container">
         <div className="text-center">
-          <h2 className="section-title">Our Process</h2>
-          <p className="section-subtitle">From concept to completion, we ensure excellence every step of the way.</p>
+          <h2 className="section-title">{t('workflow.sectionTitle')}</h2>
+          <p className="section-subtitle">{t('workflow.sectionSubtitle')}</p>
         </div>
 
         <div className="workflow-grid">

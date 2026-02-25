@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Filter, Zap, Sun, Flame, Shield, ArrowRight, BatteryMedium } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 import './Product.css';
 import { productDetails } from '../data/productDetails';
 
@@ -64,6 +65,7 @@ const getCategoryIcon = (catName) => {
 };
 
 const Product = () => {
+  const { t } = useLanguage();
   const [activeCategory, setActiveCategory] = useState('All');
   const [activeBrand, setActiveBrand] = useState('All');
   const [activeSubcategory, setActiveSubcategory] = useState('All');
@@ -129,8 +131,8 @@ const Product = () => {
       <section className="product-hero">
         <div className="container">
           <div className="product-hero-content">
-             <h1>Product Catalog</h1>
-             <p>Premium specialized equipment for energy, safety, and security.</p>
+             <h1>{t('productPage.heroTitle')}</h1>
+             <p>{t('productPage.heroSubtitle')}</p>
           </div>
         </div>
       </section>
@@ -147,7 +149,7 @@ const Product = () => {
                 onClick={() => handleCategoryChange('All')}
               >
                 <span className="filter-icon"><Filter size={18} /></span>
-                All Products
+                {t('productPage.allProducts')}
               </button>
               {allCategories.map((cat) => (
                 <button 
@@ -170,7 +172,7 @@ const Product = () => {
                   className={`filter-pill ${activeBrand === 'All' ? 'active' : ''}`}
                   onClick={() => handleBrandChange('All')}
                 >
-                  All Brands
+                  {t('productPage.allBrands')}
                 </button>
                 {availableBrands.map((brand) => (
                   <button 
@@ -193,7 +195,7 @@ const Product = () => {
                   className={`filter-pill ${activeSubcategory === 'All' ? 'active' : ''}`}
                   onClick={() => setActiveSubcategory('All')}
                 >
-                  All Categories
+                  {t('productPage.allCategories')}
                 </button>
                 {availableSubcategories.map((sub) => (
                   <button 
@@ -215,7 +217,7 @@ const Product = () => {
                 <div className="product-image">
                    <img src={product.image} alt={product.title} loading="lazy" />
                    <div className="product-overlay">
-                     <button className="btn-view-details">Request Quote</button>
+                     <button className="btn-view-details">{t('productPage.reqQuote')}</button>
                    </div>
                 </div>
                 <div className="product-details">
@@ -233,7 +235,7 @@ const Product = () => {
 
           {finalProducts.length === 0 && (
             <div className="no-products">
-               <p>No products selling in this category.</p>
+               <p>{t('productPage.noProduct')}</p>
             </div>
           )}
 

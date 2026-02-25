@@ -4,9 +4,11 @@ import Footer from '../components/Footer';
 import { Calendar, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { events } from '../data/eventsData';
+import { useLanguage } from '../context/LanguageContext';
 import '../components/Events.css';
 
 const AllEvents = () => {
+  const { t, language } = useLanguage();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -22,9 +24,9 @@ const AllEvents = () => {
         textAlign: 'center'
       }}>
         <div className="container">
-          <h1 style={{ color: 'white', marginBottom: '1rem' }}>All Events & News</h1>
+          <h1 style={{ color: 'white', marginBottom: '1rem' }}>{t('allEventsPage.heroTitle')}</h1>
           <p style={{ fontSize: '1.25rem', opacity: 0.9, maxWidth: '600px', margin: '0 auto' }}>
-            Stay updated with our latest seminars, training sessions, and company announcements.
+            {t('allEventsPage.heroSubtitle')}
           </p>
         </div>
       </section>
@@ -40,12 +42,12 @@ const AllEvents = () => {
                 <div className="event-content">
                   <div className="event-date">
                     <Calendar size={14} style={{ marginRight: '4px', verticalAlign: 'text-bottom' }} />
-                    {event.date}
+                    {language === 'th' ? event.dateTh : event.date}
                   </div>
                   <h3 className="event-title">{event.title}</h3>
-                  <p className="event-excerpt">{event.excerpt}</p>
+                  <p className="event-excerpt">{language === 'th' ? event.excerptTh : event.excerpt}</p>
                   <Link to={`/events/${event.id}`} className="read-more">
-                    Read More <ArrowRight size={16} />
+                    {t('events.readMore')} <ArrowRight size={16} />
                   </Link>
                 </div>
               </article>

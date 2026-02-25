@@ -7,21 +7,24 @@ import AboutUs from './pages/AboutUs';
 import ProjectReference from './pages/ProjectReference';
 import EventDetail from './pages/EventDetail';
 import AllEvents from './pages/AllEvents';
+import { LanguageProvider } from './context/LanguageContext';
 import './App.css';
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/service" element={<Service />} />
-        <Route path="/product" element={<Product />} />
-        <Route path="/projects" element={<ProjectReference />} />
-        <Route path="/events" element={<AllEvents />} />
-        <Route path="/events/:id" element={<EventDetail />} />
-        <Route path="/about" element={<AboutUs />} />
-      </Routes>
-    </Router>
+    <LanguageProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/service" element={<Service />} />
+          <Route path="/product" element={<Product />} />
+          <Route path="/projects" element={<ProjectReference />} />
+          <Route path="/events" element={<AllEvents />} />
+          <Route path="/events/:id" element={<EventDetail />} />
+          <Route path="/about" element={<AboutUs />} />
+        </Routes>
+      </Router>
+    </LanguageProvider>
   );
 }
 
