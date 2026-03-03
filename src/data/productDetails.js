@@ -144,5 +144,83 @@ export const productDetails = {
     name: "Besta BTB-SP Series",
     description: "Reliable UPS with 1000VA ~ 3000VA in single phrase",
     features: ["Surge protection", "USB communication port"]
+  },
+
+  // --- SolarCell : Battery : LV Top Sun ---
+  "LV-512100": {
+    name: "LV Top Sun 51.2V 100Ah",
+    description: "A 5.12 kWh LiFePO4 power wall battery featuring 90% depth of discharge and a compact wall-mounted or floor-stand design",
+    features: ["6000 cycles at 80% DoD", "Scalable from 5.12 to 76.8 kWh (up to 15 units in parallel)", "Integrated color touchscreen for quick commissioning"]
+  },
+  "LV-512200": {
+    name: "LV Top Sun 51.2V 200Ah",
+    description: "A 10.24 kWh large-capacity lithium iron phosphate battery module with a nominal capacity of 200Ah, compatible with multiple hybrid inverter brands like Solis and Deye",
+    features: ["High discharge power of 8704W", "Massive scalability up to 63 batteries in parallel", "6000 cycles at 90% DoD"]
+  },
+  "LV-512300": {
+    name: "LV Top Sun 51.2V 300Ah",
+    description: "premium 15.36 kWh high-capacity LiFePO4 power wall designed for maximum energy autonomy with 90% depth of discharge",
+    features: ["200A maximum discharge current", "Floor-stand installation with IP20 rating", "Scalable up to 967.68 kWh"]
+  },
+  "LV-High-Voltage": {
+    name: "LV Top Sun High Voltage Battery System",
+    description: "A stackable, high-voltage lithium iron phosphate (LiFePO4) battery system featuring pack-level active balancing and an IP65 rating for superior durability.",
+    features: ["Scalable architecture", "High round-trip efficiency", "Fast continuous charging"]
+  },
+
+  // --- SolarCell : Panels : BQ Solar ---
+  "BQ-132HBM-570-600W": {
+    name: "BQ Solar 132HBM 570W-600W",
+    description: "high-efficiency bifacial dual-glass monocrystalline module with a 132-cell (6x22) configuration, offering up to 600W of peak power.",
+    features: ["Achieves a maximum module efficiency of 23.3%", "Capable of reaching up to 750W (25% gain) depending on rear-side irradiation", "Features 2.0mm heat-strengthened glass on both sides and is IP68 rated"]
+  },
+  "BQ72-182BM 530-550W": {
+    name: "BQ Solar 72-182BM 530W-550W",
+    description: "A robust 144-cell bifacial monocrystalline module (6x24 configuration) designed for high system voltage up to 1500V",
+    features: ["Module efficiency up to 21.30%", "10BB (Multi-busbar) technology for improved current collection", "Anodized aluminum alloy frame with IP68 rated J-Box"]
+  },
+
+  // --- SolarCell : Panels : Trina Solar ---
+  "TR-625W_NEG19RC": {
+    name: "Trina Solar Vertex 625W (NEG19RC)",
+    description: "An ultra-high power N-type i-TOPCon bifacial dual-glass monocrystalline module designed for maximum system performance.",
+    features: ["Uses N-type i-TOPCon cells to achieve a maximum power output of 625W and 23.1% efficiency.", "Certified for 1500V system voltage with excellent PID resistance and a 35A series fuse rating", "Features 2.0mm heat-strengthened glass on both sides and is IP68 rated"]
+  },
+  "TR-tallmax": {
+    name: "Trina Solar Tallmax Series",
+    description: "A high-density interconnect monocrystalline backsheet module providing up to 560W for commercial and utility-scale projects",
+    features: ["Low temperature coefficient of -0.34% ensures stable power delivery in high-heat environments", "Features 2.0mm heat-strengthened glass on both sides and is IP68 rated", "Resistant to harsh conditions including salt, ammonia, and sand, with a positive load capacity of 5400 Pa"]
+  },
+
+  // --- SolarCell : Inverter : Solis ---
+  "S6-EH3P(10-15)K02-NV-YD-L": {
+    name: "Solis S6 Three Phase Hybrid 10-15kW",
+    description: "Three-phase low-voltage energy storage inverter (10-15kW) supporting 290A maximum charge/discharge current to maximize PV energy capture",
+    features: ["200% surge load capacity for 10 seconds", "Dual backup ports for smart control of critical and non-critical loads", "Generator compatible to extend backup duration during outages"]
+  },
+  "S6-EH3P(5-10)K2-H": {
+    name: "Solis S6 Three Phase Hybrid 5-10kW",
+    description: "Three-phase high-voltage energy storage inverter (5-10kW) with a max charge/discharge rating of 50A/10kW",
+    features: ["Automatic UPS switching and support for peak shaving mode", "Supports unbalanced and half-wave loads on both Grid and Backup ports", "Pre-made cabling (Battery, Meter, CAN) to reduce installation time"]
+  },
+  "S6-EH3P50K-H": {
+    name: "Solis S6 Three Phase Hybrid 50kW",
+    description: "Large-scale 50kW high-voltage hybrid inverter supporting a 200% DC/AC ratio for prolonged backup power",
+    features: ["160% overload capacity for 2 seconds", "Dual battery inputs with 140A total charge/discharge current", "Intelligent fan cooling and IP66 protection for industrial environments"]
+  },
+  "S5-GC(100-110)K": {
+    name: "Solis S5 Three Phase On-Grid 100-110kW",
+    description: "High-power on-grid inverter (100-110kW) with 10 MPPTs, achieving a maximum efficiency of 98.7%",
+    features: ["String current up to 16A, optimized for high-power bifacial modules", "Integrated AFCI and PID recovery to reduce fire risk and module degradation", "Supports power line communication (PLC) and aluminum wire access"]
+  },
+  "S5-GC(25-40)K": {
+    name: "Solis S5 Three Phase On-Grid 25-40kW",
+    description: "Commercial three-phase string inverter (25-40kW) with 3/4 MPPT design to support complex rooftop orientations.",
+    features: ["Intelligent string monitoring and smart I-V curve scanning", "Wide MPPT voltage range (200-1000V) with low start-up voltage", "Supports export power control and remote firmware upgrades"]
+  },
+  "Solis-1P(2.5-6)K-4G": {
+    name: "Solis 4G Single Phase On-Grid 2.5-6kW",
+    description: "Compact single-phase residential inverter (2.5-6kW) using super high-frequency switching technology for 98.1% max efficiency",
+    features: ["Ultra-low start-up voltage (60V or 120V depending on model)", "Integrated Export Power Manager (EPM)", "Natural convection cooling for silent operation"]
   }
 };

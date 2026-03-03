@@ -21,16 +21,31 @@ const products = Object.entries(imageModules).map(([path, module]) => {
   let subcategory = 'Default';
   let filename = parts[parts.length - 1];
   
-  // Categorize based on directory structure depth
-  if (parts.length === 2) {
-    brand = 'Default'; 
-    subcategory = 'Default';
-  } else if (parts.length === 3) {
-    brand = parts[1];
-    subcategory = 'Default';
-  } else if (parts.length >= 4) {
-    brand = parts[1];
-    subcategory = parts[2];
+  // Categorize based on directory structure
+  if (category === 'SolarCell') {
+    if (parts.length === 4) {
+      // e.g. SolarCell/Battery/LV Top Sun/img.png
+      subcategory = parts[1];
+      brand = parts[2];
+    } else if (parts.length >= 5) {
+      // e.g. SolarCell/Inverter/Hybrid/Solis/img.png
+      subcategory = `${parts[1]} (${parts[2]})`;
+      brand = parts[3];
+    } else if (parts.length === 3) {
+      subcategory = parts[1];
+    }
+  } else {
+    // Default fallback for other categories like FireAlarm or UPS
+    if (parts.length === 2) {
+      brand = 'Default'; 
+      subcategory = 'Default';
+    } else if (parts.length === 3) {
+      brand = parts[1];
+      subcategory = 'Default';
+    } else if (parts.length >= 4) {
+      brand = parts[1];
+      subcategory = parts[2];
+    }
   }
 
   // Remove the file extension for the title lookup (e.g., FA-A-B200S.png -> FA-A-B200S)
