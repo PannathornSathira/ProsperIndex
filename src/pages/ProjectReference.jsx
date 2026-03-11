@@ -8,7 +8,7 @@ import '../components/Events.css'; // Reuse modal styles
 import { projects } from '../data/projectsData';
 
 const ProjectReference = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [activeCategory, setActiveCategory] = useState("All");
   const [selectedProject, setSelectedProject] = useState(null);
 
@@ -73,7 +73,7 @@ const ProjectReference = () => {
                       <img src={project.image} alt={project.title} className="project-image" loading="lazy" />
                       <div className="project-info">
                         <h3>{project.title}</h3>
-                        <p>{project.description}</p>
+                        <p>{project.description[language] || project.description.en}</p>
                         <span style={{ color: 'var(--color-primary)', fontSize: '0.85rem', fontWeight: 600, marginTop: '10px', display: 'block' }}>{t('projectPage.viewGallery')}</span>
                       </div>
                     </div>
@@ -97,7 +97,7 @@ const ProjectReference = () => {
                 <span className="event-tag" style={{ display: 'inline-block', marginBottom: '10px' }}>{selectedProject.category}</span>
                 <h2 className="event-modal-title">{selectedProject.title}</h2>
               </div>
-              <p className="event-modal-description">{selectedProject.description}</p>
+              <p className="event-modal-description">{selectedProject.description[language] || selectedProject.description.en}</p>
               
               <div className="project-modal-gallery">
                 {selectedProject.gallery.map((imgSrc, index) => (

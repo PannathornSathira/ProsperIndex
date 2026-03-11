@@ -104,6 +104,113 @@ export const productDetails = {
     features: ["Multiple configuration options", "Reversible mounting bracket"]
   },
 
+  // --- Fire Alarm : Tanda ---
+  "FA-C631-Smoke-Detector": {
+    name: "DET-C631 Smoke Detector",
+    description: "Conventional smoke detector with built-in remote lamp capability.",
+    features: ["Conventional Zone", "Pairs with DB-6 Base Detector"]
+  },
+  "FA-DE6-Base-Detector": {
+    name: "DE-6 Base Detector",
+    description: "Conventional base detector designed for Smoke DET-C631 and Heat DET-C632.",
+    features: ["Conventional Zone", "Easy installation"]
+  },
+  "FA-DET-C632-Heat-Detector": {
+    name: "DET-C632 Heat Detector",
+    description: "Conventional heat detector with built-in remote lamp capability.",
+    features: ["Conventional Zone", "Pairs with DB-6 Base Detector"]
+  },
+  "FA-TX1000-Control-Panel": {
+    name: "TX1000 Series Control Panel",
+    description: "Conventional fire alarm control panel series (TX1004, TX1008, TX1012, TX1016).",
+    features: ["Conventional Zone", "Reliable zone monitoring"]
+  },
+  "FA-TX322": {
+    name: "TX7322 Addressable Sounder Base",
+    description: "Addressable sounder base used optimally with detectors.",
+    features: ["Addressable Loop", "Built-in sounder"]
+  },
+  "FA-TX7002": {
+    name: "TX7002 Fire Alarm Control Panel",
+    description: "Addressable Fire Alarm Control Panel supporting 1 or 2 loops.",
+    features: ["Addressable Loop", "Flexible loop configuration"]
+  },
+  "FA-TX7004": {
+    name: "TX7004 Fire Alarm Control Panel",
+    description: "Addressable Fire Alarm Control Panel supporting 1 up to 6 loops.",
+    features: ["Addressable Loop", "Scalable for large systems"]
+  },
+  "FA-TX7100-Smoke": {
+    name: "TX7100 Smoke Detector",
+    description: "Intelligent addressable smoke detector.",
+    features: ["Addressable Loop", "Used with TX7980 Base Detector"]
+  },
+  "FA-TX7110-Heat": {
+    name: "TX7110 Heat Detector",
+    description: "Intelligent addressable heat detector.",
+    features: ["Addressable Loop", "Used with TX7980 Base Detector"]
+  },
+  "FA-TX7130-Pull-Station": {
+    name: "TX7130 Manual Pull Station",
+    description: "Addressable manual pull station for immediate fire alarm activation.",
+    features: ["Addressable Loop", "Highly visible"]
+  },
+  "FA-TX7200-Input-Module": {
+    name: "TX7200 Input Module",
+    description: "Module to monitor dry contact devices or non-powered equipment (Equivalent to FMM Module).",
+    features: ["Addressable Loop", "Input monitoring"]
+  },
+  "FA-TX7210-Isolate-Module": {
+    name: "TX7210 Isolate Module",
+    description: "Module used to control access control or elevator systems (Equivalent to FRM Module).",
+    features: ["Addressable Loop", "System isolation control"]
+  },
+  "FA-TX7220-Dual-Module": {
+    name: "TX7220 Dual Input-Output Module",
+    description: "Receives signals (Input) and sends commands (Output) between FCP and external devices.",
+    features: ["Addressable Loop", "Dual function module"]
+  },
+  "FA-TX7300-Sounder": {
+    name: "TX7300 Sounder",
+    description: "Addressable sounder for audio notification.",
+    features: ["Addressable Loop", "High decibel output"]
+  },
+  "FA-TX7301-Sounder-Strobe": {
+    name: "TX7301 Sounder Strobe",
+    description: "Addressable sounder strobe for clear visual and audible notifications.",
+    features: ["Addressable Loop", "Strobe and sounder combination"]
+  },
+  "FA-TX7302": {
+    name: "TX7302 Flashing Beacon Base",
+    description: "Flashing beacon base for visual alarm notification.",
+    features: ["Addressable Loop", "High visibility"]
+  },
+  "FA-TX7930-Handheld": {
+    name: "TX7930 Handheld Programmer",
+    description: "Handheld device used to configure the addressable Fire Alarm Control Panel and its devices.",
+    features: ["Easy configuration", "Portable"]
+  },
+  "FA-TX7980-Base": {
+    name: "TX7980 Base Detector",
+    description: "Addressable base detector for TX7100 Smoke and TX7110 Heat detectors.",
+    features: ["Addressable Loop", "Reliable connection"]
+  },
+  "FA-TXC3150": {
+    name: "TXC3150 Manual Pull Station",
+    description: "Conventional manual pull station.",
+    features: ["Conventional Zone", "Durable design"]
+  },
+  "FA-TXC3304-Sounder-Strobe": {
+    name: "TXC3304 Sounder Strobe",
+    description: "Conventional sounder strobe with base.",
+    features: ["Conventional Zone", "Includes base"]
+  },
+  "FA-TXC7000-Series": {
+    name: "TXC7000 Series Control Panel",
+    description: "Conventional fire alarm control panel series (TXC7004, TXC7008, TXC7012).",
+    features: ["Conventional Zone", "Multi-zone support"]
+  },
+
   // --- UPS ---
   "UPS-BT-330": {
     name: "Besta UPS BT-330",

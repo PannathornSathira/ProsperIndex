@@ -51,7 +51,10 @@ export const projects = [
     id: 1,
     category: "Fire Alarm Systems",
     title: 'Bangkok Hospital Ratchasima (FA)',
-    description: 'Comprehensive installation and testing of Fire Alarm Systems.',
+    description: {
+      en: 'Comprehensive installation and testing of Fire Alarm Systems.',
+      th: 'ติดตั้งและทดสอบระบบแจ้งเตือนอัคคีภัยแบบครบวงจร'
+    },
     image: faBkkKorat3,
     gallery: [faBkkKorat1, faBkkKorat2, faBkkKorat3, faBkkKorat4, faBkkKorat5, faBkkKorat6]
   },
@@ -59,7 +62,10 @@ export const projects = [
     id: 2,
     category: "Fire Alarm Systems",
     title: 'Chakri Naruebodindra Medical Institute (FA)',
-    description: 'Advanced fire detection and alarm system configuration for medical facilities.',
+    description: {
+      en: 'Advanced fire detection and alarm system configuration for medical facilities.',
+      th: 'ตรวจเช็คระบบตรวจจับและแจ้งเตือนอัคคีภัยระดับสูงสำหรับสถานพยาบาล'
+    },
     image: faChakri4,
     gallery: [faChakri1, faChakri2, faChakri3, faChakri4, faChakri5]
   },
@@ -67,7 +73,10 @@ export const projects = [
     id: 3,
     category: "Fire Pump Systems",
     title: 'Bangkok Hospital Ratchasima (Pump)',
-    description: 'Inspection, maintenance, and testing of high-capacity Fire Pump Systems.',
+    description: {
+      en: 'Inspection, maintenance, and testing of high-capacity Fire Pump Systems.',
+      th: 'ตรวจสอบ บำรุงรักษา และทดสอบระบบเครื่องสูบน้ำดับเพลิงกำลังสูง'
+    },
     image: pumpBkkKorat1,
     gallery: [pumpBkkKorat1, pumpBkkKorat2, pumpBkkKorat3, pumpBkkKorat4, pumpBkkKorat5]
   },
@@ -75,7 +84,10 @@ export const projects = [
     id: 4,
     category: "Fire Pump Systems",
     title: 'Vichaiyut Hospital (Pump)',
-    description: 'Ensuring critical water pressure and reliable fire pump operation.',
+    description: {
+      en: 'Ensuring critical water pressure and reliable fire pump operation.',
+      th: 'ตรวจเช็คอุปกรณ์และระบบต่างๆ เพื่อให้มั่นใจว่าแรงดันน้ำมีเพียงพอและการทำงานของระบบเครื่องสูบน้ำดับเพลิงมีเสถียรภาพ'
+    },
     image: pumpVichaiyut1,
     gallery: [pumpVichaiyut1, pumpVichaiyut2, pumpVichaiyut3]
   },
@@ -83,7 +95,10 @@ export const projects = [
     id: 5,
     category: "UPS Systems",
     title: 'Samitivej Srinakarin Hospital (UPS)',
-    description: 'Installation and setup of reliable UPS systems for medical infrastructure.',
+    description: {
+      en: 'Installation and setup of reliable UPS systems for medical infrastructure.',
+      th: 'ติดตั้งและตั้งค่าระบบสำรองไฟฟ้า (UPS) ที่เชื่อถือได้สำหรับโครงสร้างพื้นฐานทางการแพทย์'
+    },
     image: upsSrinakarind1,
     gallery: [upsSrinakarind1, upsSrinakarind2, upsSrinakarind3, upsSrinakarind4, upsSrinakarind5]
   },
@@ -91,7 +106,10 @@ export const projects = [
     id: 6,
     category: "UPS Systems",
     title: 'Samitivej Sukhumvit Hospital (UPS)',
-    description: 'Advanced uninterruptible power supply solutions ensuring continuous hospital operations during outages.',
+    description: {
+      en: 'Advanced uninterruptible power supply solutions ensuring continuous hospital operations during outages.',
+      th: 'ตรวจเช็คระบบสำรองไฟฟ้า (UPS) เพื่อให้การดำเนินงานของโรงพยาบาลเป็นไปอย่างต่อเนื่องในช่วงที่อัคคีภัยหรือไฟดับ'
+    },
     image: upsSukhumvit1,
     gallery: [upsSukhumvit1, upsSukhumvit2, upsSukhumvit3, upsSukhumvit4, upsSukhumvit5]
   },
@@ -99,7 +117,10 @@ export const projects = [
     id: 7,
     category: "UPS Systems",
     title: 'Samitivej Chinatown Hospital (UPS)',
-    description: 'Deployment of high-capacity backup power and UPS networks for critical care units.',
+    description: {
+      en: 'Deployment of high-capacity backup power and UPS networks for critical care units.',
+      th: 'ติดตั้งระบบพลังงานสำรองกำลังสูงและเครือข่าย UPS สำหรับหน่วยดูแลผู้ป่วยวิกฤต'
+    },
     image: upsChinatown1,
     gallery: [upsChinatown1, upsChinatown2, upsChinatown3]
   }

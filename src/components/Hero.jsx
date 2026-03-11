@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from './Button';
-import heroBg from '../assets/hero-bg.png';
+import heroBg from '../assets/ปกเว็บไซต์.jpg';
 import './Hero.css';
 import { ArrowRight } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
