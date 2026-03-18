@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { Sun, Zap, Flame, Cctv, ArrowRight, ShieldCheck, HardHat, CheckCircle } from 'lucide-react';
+import { Sun, Zap, Flame, Cctv, ArrowRight, ShieldCheck, HardHat, CheckCircle, Wrench } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import './Service.css';
 import serviceEngineerImg from '../assets/service-engineer.png';
@@ -60,6 +60,19 @@ const Service = () => {
         t('servicePage.list.s4.f2'),
         t('servicePage.list.s4.f3'),
         t('servicePage.list.s4.f4')
+      ]
+    },
+    {
+      id: 5,
+      title: t('servicePage.list.s5.title'),
+      icon: <Wrench size={48} />,
+      color: 'var(--color-accent)',
+      description: t('servicePage.list.s5.desc'),
+      features: [
+        t('servicePage.list.s5.f1'),
+        t('servicePage.list.s5.f2'),
+        t('servicePage.list.s5.f3'),
+        t('servicePage.list.s5.f4')
       ]
     }
   ];
